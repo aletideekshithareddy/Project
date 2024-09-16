@@ -8,12 +8,9 @@ import Attendance from '../../components/Project/Attendance';
 import AttendanceInOut from '../../components/Project/Attendenceinout';
 import Attendanceinfo2 from '../../components/Project/Attendanceinfo2';
 import Payslips from '../../components/Project/Payslips';
-import Peers from '../../components/Project/Peers';
 import Assests from '../../components/Project/Asset';
 import Payslips2 from '../../components/Project/Payslips2';
 import List from "../../components/Project/List";
-import Prathyusha from "../../components/Project/Prathyusha";
-
 
 
 
@@ -22,9 +19,9 @@ export default function mainPage() {
     <View style={{backgroundColor:"#fff",height:"100%",width:"100%"}}>
       {/* <Home/> */}
       {/* <Assests/> */}
-      {/* <Attendance/> */}
-      {/* <List/> */}
-      <Payslips/>
+<Home/>
+
+      {/* <Payslips/> */}
     </View>
   );
 }

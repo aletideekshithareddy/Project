@@ -111,61 +111,8 @@ export default function PayslipSummary() {
           </View>
         </View>
         {/*Second Box */}
-        <View style={styles.pfview}>
-          <Text style={styles.pfstatement}>PF Statement</Text>
-        </View>
-        {/*Third Box */}
-        <View style={{ padding: "5%" }}>
-          <Text style={styles.Income}>Employee Contribution</Text>
-          <View style={styles.box1}>
-            <View
-              style={{
-                flexDirection: "row",
-                justifyContent: "space-between",
-              }}
-            >
-              <View>
-                <Text style={styles.basic}>P.F</Text>
-                <Text style={styles.basic}>V.P.F</Text>
-              </View>
-              <View>
-                <Text style={styles.amounts}>₹ 1,205.00</Text>
-                <Text style={styles.amounts}>₹ 0</Text>
-              </View>
-            </View>
-            <View style={styles.grossview}>
-              <Text style={styles.gross}>Total</Text>
-              <Text style={styles.total}>₹ 1,250.00</Text>
-            </View>
-          </View>
-        </View>
-        {/*Third Box */}
-        {/*Fourth Box */}
-        <View style={{ padding: "5%" }}>
-          <Text style={styles.Income}>Employer's Contribution</Text>
-          <View style={styles.box1}>
-            <View
-              style={{
-                flexDirection: "row",
-                justifyContent: "space-between",
-              }}
-            >
-              <View>
-                <Text style={styles.basic}>P.F</Text>
-                <Text style={styles.basic}>Pension Fund</Text>
-              </View>
-              <View>
-                <Text style={styles.amounts}>₹ 382.00</Text>
-                <Text style={styles.amounts}>₹ 868.00</Text>
-              </View>
-            </View>
-            <View style={styles.grossview}>
-              <Text style={styles.gross}>Total</Text>
-              <Text style={styles.total}>₹ 1,250.00</Text>
-            </View>
-          </View>
-        </View>
-        {/*Fourth Box */}
+        
+        
 
         <View style={styles.downloadview}>
           <TouchableOpacity style={styles.downloadButton}>

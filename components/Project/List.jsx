@@ -18,7 +18,6 @@ export default function Peers() {
   const [activeTab, setActiveTab] = useState("All List");
   const tabs = ["All List", "Favorite List"];
   const [searchQuery, setSearchQuery] = useState("");
-
   const [peersData, setPeersData] = useState([
     {
       id: "1",
