@@ -20,7 +20,11 @@ import Prathyusha from "../../components/Project/Prathyusha";
 export default function mainPage() {
   return (
     <View style={{backgroundColor:"#fff",height:"100%",width:"100%"}}>
-      <Prathyusha/>
+      {/* <Home/> */}
+      {/* <Assests/> */}
+      {/* <Attendance/> */}
+      {/* <List/> */}
+      <Payslips/>
     </View>
   );
 }

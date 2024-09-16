@@ -3,7 +3,7 @@ import {
   Text,
   TouchableOpacity,
   StyleSheet,
-  TextInput,
+  FlatList,
 } from "react-native";
 import React, { useState } from "react";
 import {
@@ -17,7 +17,54 @@ import { Searchbar } from "react-native-paper";
 export default function Peers() {
   const [activeTab, setActiveTab] = useState("All List");
   const tabs = ["All List", "Favorite List"];
-  const [searchQuery, setSearchQuery] = React.useState("");
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const [peersData, setPeersData] = useState([
+    {
+      id: "1",
+      name: "Nithin",
+      position: "UI/UX Trainee",
+      employeeID: "100251",
+      location: "Hyderabad, 500094",
+      isFavorite: false,
+    },
+    {
+      id: "2",
+      name: "John",
+      position: "Backend Developer",
+      employeeID: "100252",
+      location: "Mumbai, 400001",
+      isFavorite: false,
+    },
+    {
+      id: "3",
+      name: "Jane",
+      position: "Frontend Developer",
+      employeeID: "100253",
+      location: "Bangalore, 560001",
+      isFavorite: false,
+    },
+    {
+      id: "4",
+      name: "Jane",
+      position: "Frontend Developer",
+      employeeID: "100253",
+      location: "Bangalore, 560001",
+      isFavorite: false,
+    },
+  ]);
+
+  const toggleFavorite = (id) => {
+    setPeersData((prevPeersData) =>
+      prevPeersData.map((peer) =>
+        peer.id === id ? { ...peer, isFavorite: !peer.isFavorite } : peer
+      )
+    );
+  };
+
+  const filteredPeers = peersData.filter((peer) =>
+    peer.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   return (
     <View>
@@ -66,156 +113,53 @@ export default function Peers() {
           placeholderTextColor="#999"
         />
       </View>
-      <View>
-        <View style={{ padding: "3%", paddingTop: "7%" }}>
-          <View style={styles.box1}>
-            <View
-              style={{
-                flexDirection: "row",
-                justifyContent: "space-between",
-              }}
-            >
-              <View style={{ width: "50%" }}>
-                <Text style={styles.nithin}>Nithin</Text>
-                <Text style={styles.trainee}>UI/UX Trainee</Text>
-                <Text style={styles.number}>100251</Text>
-                <Text style={styles.hyderabad}>Hyderabad,500094</Text>
-              </View>
+
+      <FlatList
+        data={filteredPeers}
+        keyExtractor={(item) => item.employeeID}
+        renderItem={({ item }) => (
+          <View style={{ padding: "3%" }}>
+            <View style={styles.box1}>
               <View
                 style={{
                   flexDirection: "row",
-                  width: "50%",
-                  justifyContent: "flex-end",
+                  justifyContent: "space-between",
                 }}
               >
-                <Text style={{ paddingRight: "5%" }}>
-                  <Feather name="message-square" size={24} color="black" />
-                </Text>
-                <FontAwesome name="heart" size={24} color="red" />
+                <View style={{ width: "50%" }}>
+                  <Text style={styles.nithin}>{item.name}</Text>
+                  <Text style={styles.trainee}>{item.position}</Text>
+                  <Text style={styles.number}>{item.employeeID}</Text>
+                  <Text style={styles.hyderabad}>{item.location}</Text>
+                </View>
+                <View
+                  style={{
+                    flexDirection: "row",
+                    width: "50%",
+                    justifyContent: "flex-end",
+                  }}
+                >
+                  <Text style={{ paddingRight: "5%" }}>
+                    <Feather name="message-square" size={24} color="black" />
+                  </Text>
+
+                  <TouchableOpacity onPress={() => toggleFavorite(item.id)}>
+                    <FontAwesome
+                      name="heart"
+                      size={24}
+                      color={item.isFavorite ? "red" : "black"} 
+                    />
+                  </TouchableOpacity>
+                </View>
               </View>
             </View>
           </View>
-        </View>
-        <View style={{ padding: "3%" }}>
-          <View style={styles.box1}>
-            <View
-              style={{
-                flexDirection: "row",
-                justifyContent: "space-between",
-              }}
-            >
-              <View style={{ width: "50%" }}>
-                <Text style={styles.nithin}>Nithin</Text>
-                <Text style={styles.trainee}>UI/UX Trainee</Text>
-                <Text style={styles.number}>100251</Text>
-                <Text style={styles.hyderabad}>Hyderabad,500094</Text>
-              </View>
-              <View
-                style={{
-                  flexDirection: "row",
-                  width: "50%",
-                  justifyContent: "flex-end",
-                }}
-              >
-                <Text style={{ paddingRight: "5%" }}>
-                  <Feather name="message-square" size={24} color="black" />
-                </Text>
-                <FontAwesome name="heart" size={24} color="red" />
-              </View>
-            </View>
-          </View>
-        </View>
-        <View style={{ padding: "3%" }}>
-          <View style={styles.box1}>
-            <View
-              style={{
-                flexDirection: "row",
-                justifyContent: "space-between",
-              }}
-            >
-              <View style={{ width: "50%" }}>
-                <Text style={styles.nithin}>Nithin</Text>
-                <Text style={styles.trainee}>UI/UX Trainee</Text>
-                <Text style={styles.number}>100251</Text>
-                <Text style={styles.hyderabad}>Hyderabad,500094</Text>
-              </View>
-              <View
-                style={{
-                  flexDirection: "row",
-                  width: "50%",
-                  justifyContent: "flex-end",
-                }}
-              >
-                <Text style={{ paddingRight: "5%" }}>
-                  <Feather name="message-square" size={24} color="black" />
-                </Text>
-                <FontAwesome name="heart" size={24} color="red" />
-              </View>
-            </View>
-          </View>
-        </View>
-        <View style={{ padding: "3%" }}>
-          <View style={styles.box1}>
-            <View
-              style={{
-                flexDirection: "row",
-                justifyContent: "space-between",
-              }}
-            >
-              <View style={{ width: "50%" }}>
-                <Text style={styles.nithin}>Nithin</Text>
-                <Text style={styles.trainee}>UI/UX Trainee</Text>
-                <Text style={styles.number}>100251</Text>
-                <Text style={styles.hyderabad}>Hyderabad,500094</Text>
-              </View>
-              <View
-                style={{
-                  flexDirection: "row",
-                  width: "50%",
-                  justifyContent: "flex-end",
-                }}
-              >
-                <Text style={{ paddingRight: "5%" }}>
-                  <Feather name="message-square" size={24} color="black" />
-                </Text>
-                <FontAwesome name="heart" size={24} color="red" />
-              </View>
-            </View>
-          </View>
-        </View>
-        <View style={{ padding: "3%" }}>
-          <View style={styles.box1}>
-            <View
-              style={{
-                flexDirection: "row",
-                justifyContent: "space-between",
-              }}
-            >
-              <View style={{ width: "50%" }}>
-                <Text style={styles.nithin}>Nithin</Text>
-                <Text style={styles.trainee}>UI/UX Trainee</Text>
-                <Text style={styles.number}>100251</Text>
-                <Text style={styles.hyderabad}>Hyderabad,500094</Text>
-              </View>
-              <View
-                style={{
-                  flexDirection: "row",
-                  width: "50%",
-                  justifyContent: "flex-end",
-                }}
-              >
-                <Text style={{ paddingRight: "5%" }}>
-                  <Feather name="message-square" size={24} color="black" />
-                </Text>
-                <FontAwesome name="heart" size={24} color="red" />
-              </View>
-            </View>
-          </View>
-        </View>
-      </View>
+        )}
+      />
     </View>
   );
 }
+
 const styles = StyleSheet.create({
   header: {
     flexDirection: "row",

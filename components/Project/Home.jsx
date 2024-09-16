@@ -56,18 +56,13 @@ export default function Home() {
                   fontFamily: "sans-serif",
                   color: "#606060",
                   padding: "2%",
-                  //  paddingLeft:"25%",
+                 
                 }}
               >
                 {detail.label}
               </Text>
             ))}
           </View>
-          {/* <View>
-            {item.map((detail, idx) => (
-              <ImageBackground source={logoImg} style={{ height: 70, width: 70 }} />
-            ))}
-          </View> */}
         </View>
       </View>
     );
@@ -84,6 +79,13 @@ export default function Home() {
   const onSuccess = () => {
     console.log("Successfully Swiped!");
   };
+  const texts=[
+    "06",
+    "01",
+    "03",
+    "02",
+    "00"
+  ]
 
   const widthAndHeight = 125;
   const series = [231, 431, 113, 109, 409];
@@ -224,11 +226,10 @@ export default function Home() {
                     justifyContent: "space-between",
                   }}
                 >
-                  <Text>06</Text>
-                  <Text>01</Text>
-                  <Text>03</Text>
-                  <Text>02</Text>
-                  <Text>00</Text>
+                    {texts.map((items, index) => (
+                      <Text key={index}>{items}</Text>
+                    ))}
+    
                 </View>
               </View>
             </View>
